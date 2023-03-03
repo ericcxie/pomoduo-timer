@@ -4,7 +4,7 @@ function FowardButton(props) {
   const { page } = props;
   return (
     <a
-      className="fixed bottom-14 right-10 lg:right-20 inline-block rounded-full border border-green-400 p-3 text-green-400 hover:bg-green-400 hover:text-gray-200 focus:outline-none focus:ring active:bg-indigo-700"
+      className="fixed bottom-14 right-10 lg:right-20 inline-block rounded-full border border-green-400 p-3 text-green-400 hover:bg-green-400 hover:text-gray-200 focus:outline-none focus:ring active:bg-green-500"
       href={page}
     >
       <span className="sr-only"> Download </span>

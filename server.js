@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const { Pool } = require("pg");
 
-const { generateRoomCode } = require("./utils/generateRoomCode");
+const { generateRoomCode } = require("./client/src/utils/generateRoomCode");
 
 // Connect to the database
 const pool = new Pool({
