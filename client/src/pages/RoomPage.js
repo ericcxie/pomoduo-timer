@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import Alarm from "../components/Alarm";
 import Navigation from "../components/Navigation";
 import Timer from "../components/Timer";
 
@@ -10,6 +11,9 @@ const Room = () => {
   const [stage, setStage] = useState(0);
   const [ticking, setTicking] = useState(false);
   const [secondsPassed, setSecondsPassed] = useState(0);
+  const [isTimeUp, setIsTimeUp] = useState(false);
+
+  const alarmRef = useRef();
 
   const reset = () => {
     setSecondsPassed(0);
@@ -45,6 +49,11 @@ const Room = () => {
     return timeStage[stage];
   };
 
+  const timeUp = () => {
+    reset();
+    alarmRef.current.play();
+  };
+
   const updateMinute = () => {
     const updateStage = {
       0: setPomodoro,
@@ -59,13 +68,18 @@ const Room = () => {
     const setMinutes = updateMinute();
 
     if (minutes === 0 && seconds === 0) {
-      reset();
+      timeUp();
     } else if (seconds === 0) {
       setMinutes((minute) => minute - 1);
       setSecond(59);
     } else {
       setSecond((second) => second - 1);
     }
+  };
+
+  const muteAlarm = () => {
+    alarmRef.current.pause();
+    alarmRef.current.currentTime = 0;
   };
 
   useEffect(() => {
@@ -102,7 +116,9 @@ const Room = () => {
           seconds={seconds}
           ticking={ticking}
           setTicking={setTicking}
+          muteAlarm={muteAlarm}
         />
+        <Alarm ref={alarmRef} />
       </div>
     </div>
   );

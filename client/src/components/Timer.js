@@ -1,7 +1,24 @@
-import React from "react";
+import { useRef } from "react";
+import { FiBellOff } from "react-icons/fi";
+import Click from "./Click";
 
-function Timer({ stage, switchStage, getTime, seconds, ticking, setTicking }) {
+function Timer({
+  stage,
+  switchStage,
+  getTime,
+  seconds,
+  ticking,
+  setTicking,
+  isTimeUp,
+  muteAlarm,
+}) {
   const options = ["Pomodoro", "Short Break", "Long Break"];
+  function handleClick() {
+    const audio = new Audio("/click.mp3");
+    audio.play();
+    setTicking((ticking) => !ticking);
+  }
+
   return (
     <div className="w-10/12 mx-auto pt-5 flex flex-col justify-center items-center mt-10">
       <div className="flex gap-5 items-center text-gray-600">
@@ -24,12 +41,20 @@ function Timer({ stage, switchStage, getTime, seconds, ticking, setTicking }) {
           {getTime()}:{seconds.toString().padStart(2, "0")}
         </h1>
       </div>
-      <button
-        className="px-16 py-2 text-2xl rounded-md bg-green-400 text-white font-semibold uppercase"
-        onClick={() => setTicking((ticking) => !ticking)}
-      >
-        {ticking ? "Stop" : "Start"}
-      </button>
+      <div>
+        <button
+          className="px-16 py-2 text-2xl rounded-md bg-green-400 text-white font-semibold uppercase"
+          onClick={handleClick}
+        >
+          {ticking ? "Stop" : "Start"}
+        </button>
+        {isTimeUp && (
+          <FiBellOff
+            className="text-3xl text-black cursor-pointer"
+            onClick={muteAlarm}
+          />
+        )}
+      </div>
     </div>
   );
 }
