@@ -9,7 +9,7 @@ const GenerateCode = () => {
         <div className="space-y-3">
           <img src={graphic} width={375} alt="main" className="mb-8 ml-2" />
           <h1 className="text-4xl font-bold text-gray-600 text-center">
-            Your study room <span className="text-green">code</span> is:
+            Your study room <span className="text-green-400">code</span> is:
           </h1>
           <p className="text-2xl text-center text-gray-600 italic font-semibold">
             ASD23HA
