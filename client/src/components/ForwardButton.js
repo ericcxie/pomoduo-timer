@@ -1,6 +1,6 @@
 import React from "react";
 
-function FowardButton(props) {
+function ForwardButton(props) {
   const { page } = props;
   return (
     <a
@@ -27,4 +27,4 @@ function FowardButton(props) {
   );
 }
 
-export default FowardButton;
+export default ForwardButton;

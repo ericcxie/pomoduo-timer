@@ -11,7 +11,7 @@ const joinRoom = async (userName, roomCode) => {
     window.location.href = "/room";
   } catch (error) {
     console.error(error);
-    throw new Error("Failed to join room. Please check your room code.");
+    throw new Error("Failed to join. Please check your room code.");
   }
 };
 
