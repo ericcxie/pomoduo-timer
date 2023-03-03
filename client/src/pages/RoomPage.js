@@ -9,9 +9,31 @@ const Room = () => {
   const [seconds, setSecond] = useState(0);
   const [stage, setStage] = useState(0);
   const [ticking, setTicking] = useState(false);
+  const [secondsPassed, setSecondsPassed] = useState(0);
+
+  const reset = () => {
+    setSecondsPassed(0);
+    setTicking(false);
+    setSecond(0);
+    setPomodoro(25);
+    setLongBreak(15);
+    setShortBreak(5);
+  };
 
   const switchStage = (index) => {
-    setStage(index);
+    const isChange =
+      secondsPassed && stage !== index
+        ? window.confirm(
+            "The timer is still running, are you sure you want to switch?"
+          )
+        : false;
+
+    if (isChange) {
+      reset();
+      setStage(index);
+    } else if (!secondsPassed) {
+      setStage(index);
+    }
   };
 
   const getTime = () => {
@@ -32,13 +54,6 @@ const Room = () => {
     return updateStage[stage];
   };
 
-  const reset = () => {
-    setTicking(false);
-    setPomodoro(25);
-    setLongBreak(15);
-    setShortBreak(5);
-  };
-
   const clockTicking = () => {
     const minutes = getTime();
     const setMinutes = updateMinute();
@@ -54,8 +69,13 @@ const Room = () => {
   };
 
   useEffect(() => {
+    window.onbeforeunload = () => {
+      return secondsPassed ? "Show warning" : null;
+    };
+
     const timer = setInterval(() => {
       if (ticking) {
+        setSecondsPassed((value) => value + 1);
         clockTicking();
       }
     }, 1000);
@@ -66,7 +86,13 @@ const Room = () => {
   }, [seconds, pomodoro, shortBreak, longBreak, ticking]);
 
   return (
-    <div className="bg-white min-h-screen">
+    <div
+      className={
+        ticking
+          ? "bg-green-100 min-h-screen transition-colors delay-100"
+          : "bg-white min-h-screen transition-colors delay-100"
+      }
+    >
       <div className="max-w-xl min-h-screen mx-auto">
         <Navigation />
         <Timer
