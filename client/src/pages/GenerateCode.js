@@ -4,14 +4,25 @@ import BackButton from "../components/BackButton";
 import { generateRoomCode } from "../utils/generateRoomCode";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
+import createRoom from "../context/createRoom";
+
 const GenerateCode = () => {
   const [roomCode, setRoomCode] = useState("");
   const [copied, setCopied] = useState(false);
 
-  const handleGenerateCode = () => {
-    const newCode = generateRoomCode(6);
-    setRoomCode(newCode);
+  // const handleGenerateCode = () => {
+  //   const newCode = generateRoomCode(6);
+  //   setRoomCode(newCode);
+  //   document.getElementById("generate-code-btn").disabled = true;
+  // };
+
+  const handleCreateRoom = () => {
+    const roomCode = generateRoomCode(6);
+    setRoomCode(roomCode);
     document.getElementById("generate-code-btn").disabled = true;
+
+    const userName = "";
+    createRoom(roomCode, userName);
   };
 
   return (
@@ -38,7 +49,7 @@ const GenerateCode = () => {
         <button
           id="generate-code-btn"
           className="group relative inline-block text-sm font-medium text-green-400 focus:outline-none focus:ring active:text-green-400 mb-4 mt-4 cursor-pointer"
-          onClick={handleGenerateCode}
+          onClick={handleCreateRoom}
           disabled={roomCode}
         >
           <span className="absolute inset-0 translate-x-0 translate-y-0 bg-green-400 transition-transform group-hover:translate-y-0.5 group-hover:translate-x-0.5 rounded-xl"></span>

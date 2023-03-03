@@ -1,4 +1,3 @@
-import { useState } from "react";
 import main from "../img/main.png";
 
 const Landing = () => {
