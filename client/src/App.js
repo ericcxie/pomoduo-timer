@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Landing, Room } from "./pages";
+import { Landing, Room, GenerateCode } from "./pages";
 
 function App() {
   return (
@@ -7,6 +7,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/room" element={<Room />} />
+        <Route path="/join" element={<GenerateCode />} />
         {/* <Route path='*' element={<Error/>}/> */}
       </Routes>
     </BrowserRouter>
