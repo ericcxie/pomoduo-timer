@@ -8,7 +8,18 @@ module.exports = {
         "light-theme-gray": "#bfbfbf",
         "light-button-gray": "#bfbfbf",
         "light-font": "#474747",
-        green: "#798A72",
+        green: {
+          50: "#f6f7f6",
+          100: "#e3e7e0",
+          200: "#c5cec1",
+          300: "#a0ae9a",
+          400: "#798a72",
+          500: "#61725a",
+          600: "#4b5a47",
+          700: "#3e4a3b",
+          800: "#353d32",
+          900: "#2e352c",
+        },
       },
 
       borderRadius: {
