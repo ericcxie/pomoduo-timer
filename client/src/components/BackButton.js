@@ -1,11 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-function BackButton(props) {
-  const { page } = props;
+function BackButton() {
+  const navigate = useNavigate();
+  const goBack = () => {
+    navigate(-1);
+  };
+
   return (
-    <a
+    <button
       className="fixed bottom-14 left-10 lg:left-20 inline-block rounded-full border border-green-400 p-3 text-green-400 hover:bg-green-400 hover:text-gray-200 focus:outline-none focus:ring active:bg-green-600"
-      href={page}
+      onClick={goBack}
     >
       <span className="sr-only"> Download </span>
 
@@ -23,7 +28,7 @@ function BackButton(props) {
           d="M14 5l7 7m0 0l-7 7m7-7H3"
         />
       </svg>
-    </a>
+    </button>
   );
 }
 

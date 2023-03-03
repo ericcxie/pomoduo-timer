@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import graphic from "../img/studycode.svg";
 import BackButton from "../components/BackButton";
 import { generateRoomCode } from "../utils/generateRoomCode";
@@ -13,11 +13,17 @@ const GenerateCode = () => {
     setRoomCode(newCode);
     document.getElementById("generate-code-btn").disabled = true;
   };
+
   return (
     <main>
       <div className="flex flex-col mt-40 items-center justify-center">
         <div className="space-y-3">
-          <img src={graphic} width={375} alt="main" className="mb-8 ml-2" />
+          <img
+            src={graphic}
+            width={375}
+            alt="main"
+            className="mb-8 ml-2 -mt-12"
+          />
           <h1 className="text-4xl font-bold text-gray-600 text-center">
             Your study room <span className="text-green-400">code</span> is:
           </h1>
@@ -50,10 +56,18 @@ const GenerateCode = () => {
             </span>
           </button>
         </CopyToClipboard>
+        <a
+          className="group relative inline-block text-sm font-medium text-green-400 focus:outline-none focus:ring active:text-green-400 mt-1"
+          href="/join"
+        >
+          <span className="absolute inset-0 translate-x-0 translate-y-0 bg-green-400 transition-transform group-hover:translate-y-0.5 group-hover:translate-x-0.5 rounded-xl"></span>
 
-        <div>
-          <BackButton page="/"></BackButton>
-        </div>
+          <span className="relative block border border-current bg-white px-8 py-3 rounded-xl">
+            Join Room
+          </span>
+        </a>
+
+        <BackButton page="/" />
       </div>
     </main>
   );
