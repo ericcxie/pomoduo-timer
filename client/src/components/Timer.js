@@ -1,17 +1,8 @@
 import { useRef } from "react";
-import { FiBellOff } from "react-icons/fi";
+
 import Click from "./Click";
 
-function Timer({
-  stage,
-  switchStage,
-  getTime,
-  seconds,
-  ticking,
-  setTicking,
-  isTimeUp,
-  muteAlarm,
-}) {
+function Timer({ stage, switchStage, getTime, seconds, ticking, setTicking }) {
   const options = ["Pomodoro", "Short Break", "Long Break"];
   function handleClick() {
     const audio = new Audio("/click.mp3");
@@ -48,12 +39,6 @@ function Timer({
         >
           {ticking ? "Stop" : "Start"}
         </button>
-        {isTimeUp && (
-          <FiBellOff
-            className="text-3xl text-black cursor-pointer"
-            onClick={muteAlarm}
-          />
-        )}
       </div>
     </div>
   );

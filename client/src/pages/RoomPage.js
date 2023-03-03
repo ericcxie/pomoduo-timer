@@ -11,7 +11,6 @@ const Room = () => {
   const [stage, setStage] = useState(0);
   const [ticking, setTicking] = useState(false);
   const [secondsPassed, setSecondsPassed] = useState(0);
-  const [isTimeUp, setIsTimeUp] = useState(false);
 
   const alarmRef = useRef();
 
@@ -49,10 +48,11 @@ const Room = () => {
     return timeStage[stage];
   };
 
-  const timeUp = () => {
-    reset();
-    alarmRef.current.play();
-  };
+  // const timeUp = () => {
+  //   reset();
+  //   setIsTimeUp(true);
+  //   alarmRef.current.play();
+  // };
 
   const updateMinute = () => {
     const updateStage = {
@@ -68,7 +68,8 @@ const Room = () => {
     const setMinutes = updateMinute();
 
     if (minutes === 0 && seconds === 0) {
-      timeUp();
+      reset();
+      alarmRef.current.play();
     } else if (seconds === 0) {
       setMinutes((minute) => minute - 1);
       setSecond(59);
