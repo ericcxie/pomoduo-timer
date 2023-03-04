@@ -23,3 +23,7 @@ The Pomodoro Technique is created by Francesco Cirillo for a more productive way
 <img width="1280" alt="Generate code" src="https://user-images.githubusercontent.com/66566975/222875679-7727602e-eddb-44f8-b662-82c9a12c5c6e.png">
 <img width="1280" alt="Join room" src="https://user-images.githubusercontent.com/66566975/222875735-f6c6d43b-8d4a-42bf-b3ed-48d51d5af887.png">
 <img width="1280" alt="Pomodoro" src="https://user-images.githubusercontent.com/66566975/222875737-fa69eee7-a692-473e-a212-3618a8392cf1.png">
+
+<img width="1512" alt="Screenshot 2023-03-04 at 1 09 42 AM" src="https://user-images.githubusercontent.com/66566975/222879304-7654ece8-b1c6-4923-87c1-3a767d583382.png">
+<img width="1508" alt="Screenshot 2023-03-04 at 1 10 08 AM" src="https://user-images.githubusercontent.com/66566975/222879321-e8599264-2cef-4788-8c38-cd4641d71956.png">
+<img width="1510" alt="Screenshot 2023-03-04 at 1 10 19 AM" src="https://user-images.githubusercontent.com/66566975/222879326-4de77f0c-d90c-4b2b-aa87-97a6dfeeed7d.png">
