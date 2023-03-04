@@ -15,8 +15,10 @@
     <br><br>
 </div>
  
-<img width="1509" alt="Screenshot 2023-03-02 at 10 19 59 PM" src="https://user-images.githubusercontent.com/66566975/222623067-681cfc16-bba1-4e80-8bc9-9d04828dae99.png">
-![Screenshot 2023-03-03 at 11 28 35 PM](https://user-images.githubusercontent.com/66566975/222875657-595ccd6d-7480-4450-a185-71eda6c11482.png)
+<img width="1509" alt="Landing" src="https://user-images.githubusercontent.com/66566975/222623067-681cfc16-bba1-4e80-8bc9-9d04828dae99.png">
+<img width="1509" alt="Generate code" src="https://user-images.githubusercontent.com/66566975/222875679-7727602e-eddb-44f8-b662-82c9a12c5c6e.png">
+
+
 
 
 ## What is Pomodoro Technique?
