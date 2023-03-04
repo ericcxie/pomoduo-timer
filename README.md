@@ -17,7 +17,7 @@
 </div>
 
 ## What is Pomodoro Technique?
-The Pomodoro Technique is created by Francesco Cirillo for a more productive way to work and study. The technique uses a timer to break down work into intervals, traditionally 25 minutes in length, separated by short breaks. Each interval is known as a pomodoro, from the Italian word for 'tomato', after the tomato-shaped kitchen timer that Cirillo used as a university student. - Wikipedia
+*The Pomodoro Technique is created by Francesco Cirillo for a more productive way to work and study. The technique uses a timer to break down work into intervals, traditionally 25 minutes in length, separated by short breaks. Each interval is known as a pomodoro, from the Italian word for 'tomato', after the tomato-shaped kitchen timer that Cirillo used as a university student. - Wikipedia*
 
 
 <img width="1512" alt="Screenshot 2023-03-04 at 1 09 42 AM" src="https://user-images.githubusercontent.com/66566975/222879304-7654ece8-b1c6-4923-87c1-3a767d583382.png">
