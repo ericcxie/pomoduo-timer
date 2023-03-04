@@ -78,4 +78,4 @@ function ModalSetting({
   );
 }
 
-export default ModalSetting;
+export default React.memo(ModalSetting);
