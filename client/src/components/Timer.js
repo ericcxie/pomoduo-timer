@@ -1,7 +1,3 @@
-import { useRef } from "react";
-
-import Click from "./Click";
-
 function Timer({
   stage,
   switchStage,

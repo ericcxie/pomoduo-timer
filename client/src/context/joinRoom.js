@@ -8,7 +8,7 @@ const joinRoom = async (userName, roomCode) => {
     });
     console.log(response.data);
     // Redirect the user to the room page
-    window.location.href = "/room";
+    window.location.href = `/room/${roomCode}`;
   } catch (error) {
     console.error(error);
     throw new Error("Failed to join. Please check your room code.");
