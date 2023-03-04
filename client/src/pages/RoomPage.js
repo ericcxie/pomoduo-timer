@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import Alarm from "../components/Alarm";
+import ModalSetting from "../components/ModalSetting";
 import Navigation from "../components/Navigation";
 import Timer from "../components/Timer";
 
@@ -12,15 +13,27 @@ const Room = () => {
   const [ticking, setTicking] = useState(false);
   const [secondsPassed, setSecondsPassed] = useState(0);
 
+  const [openSettings, setOpenSettings] = useState(false);
+
   const alarmRef = useRef();
+  const pomodoroRef = useRef();
+  const shortBreakRef = useRef();
+  const longBreakRef = useRef();
+
+  const updateTimeDefaultValue = () => {
+    setPomodoro(pomodoroRef.current.value);
+    setShortBreak(shortBreakRef.current.value);
+    setLongBreak(longBreakRef.current.value);
+    setOpenSettings(false);
+    setSecond(0);
+    setSecondsPassed(0);
+  };
 
   const reset = () => {
     setSecondsPassed(0);
     setTicking(false);
     setSecond(0);
-    setPomodoro(25);
-    setLongBreak(15);
-    setShortBreak(5);
+    updateTimeDefaultValue();
   };
 
   const switchStage = (index) => {
@@ -109,7 +122,7 @@ const Room = () => {
       }
     >
       <div className="max-w-xl min-h-screen mx-auto">
-        <Navigation />
+        <Navigation setOpenSettings={setOpenSettings} />
         <Timer
           stage={stage}
           switchStage={switchStage}
@@ -118,8 +131,17 @@ const Room = () => {
           ticking={ticking}
           setTicking={setTicking}
           muteAlarm={muteAlarm}
+          reset={reset}
         />
         <Alarm ref={alarmRef} />
+        <ModalSetting
+          openSettings={openSettings}
+          setOpenSettings={setOpenSettings}
+          pomodoroRef={pomodoroRef}
+          shortBreakRef={shortBreakRef}
+          longBreakRef={longBreakRef}
+          updateTimeDefaultValue={updateTimeDefaultValue}
+        />
       </div>
     </div>
   );

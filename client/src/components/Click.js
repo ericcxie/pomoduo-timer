@@ -4,7 +4,7 @@ import React from "react";
 const Click = React.forwardRef((_, ref) => {
   return (
     <audio ref={ref}>
-      <source src="/click.mp3" type="audio/mp3" />
+      <source src="/click.wav" type="audio/wav" />
       Your browser does not support the audio element.
     </audio>
   );

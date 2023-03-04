@@ -21,13 +21,13 @@ const Landing = () => {
           <span className="absolute inset-0 translate-x-0 translate-y-0 bg-green-400 transition-transform group-hover:translate-y-0.5 group-hover:translate-x-0.5 rounded-xl"></span>
 
           <span className="relative block border border-current bg-white px-8 py-3 rounded-xl">
-            Create Study Room
+            Start study session
           </span>
         </a>
 
         {/* Enter code */}
         <a
-          className="text-md font-semibold text-gray-600 text-center cursor-pointer underline"
+          className="text-md font-semibold text-gray-600 text-center cursor-pointer underline hover:text-gray-800"
           href="/join"
         >
           Already have a <span className="text-green-400">code</span>?

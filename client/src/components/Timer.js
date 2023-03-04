@@ -2,10 +2,18 @@ import { useRef } from "react";
 
 import Click from "./Click";
 
-function Timer({ stage, switchStage, getTime, seconds, ticking, setTicking }) {
+function Timer({
+  stage,
+  switchStage,
+  getTime,
+  seconds,
+  ticking,
+  setTicking,
+  reset,
+}) {
   const options = ["Pomodoro", "Short Break", "Long Break"];
   function handleClick() {
-    const audio = new Audio("/click.mp3");
+    const audio = new Audio("/click.wav");
     audio.play();
     setTicking((ticking) => !ticking);
   }
@@ -34,12 +42,20 @@ function Timer({ stage, switchStage, getTime, seconds, ticking, setTicking }) {
       </div>
       <div>
         <button
-          className="px-16 py-2 text-2xl rounded-md bg-green-400 text-white font-semibold uppercase"
+          className="px-16 py-2 text-2xl rounded-md bg-green-400 hover:bg-green-500 text-white font-semibold uppercase"
           onClick={handleClick}
         >
           {ticking ? "Stop" : "Start"}
         </button>
       </div>
+      {ticking && (
+        <button
+          className="uppercase text-white bg-green-500 hover:bg-green-400 bg-opacity-70 rounded-md py-1 px-3 mt-5"
+          onClick={reset}
+        >
+          Reset
+        </button>
+      )}
     </div>
   );
 }

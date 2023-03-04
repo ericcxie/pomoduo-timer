@@ -34,7 +34,7 @@ const JoinRoom = () => {
             placeholder="Enter Name"
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
-            className="w-full rounded-xl border border-green-400 pr-10 py-2 pl-4 shadow-sm sm:text-sm"
+            className="w-full rounded-xl border border-green-400 pr-10 py-2 pl-4 shadow-sm sm:text-sm outline-none"
           />
         </div>
 
@@ -44,7 +44,7 @@ const JoinRoom = () => {
             placeholder="Enter Room Code"
             value={roomCode}
             onChange={(e) => setRoomCode(e.target.value)}
-            className="w-full rounded-xl border border-green-400 pr-10 py-2 pl-4 shadow-sm sm:text-sm"
+            className="w-full rounded-xl border border-green-400 pr-10 py-2 pl-4 shadow-sm sm:text-sm outline-none"
           />
         </div>
 
