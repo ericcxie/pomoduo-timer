@@ -14,6 +14,7 @@
     <img src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white"/>
     <img src="https://img.shields.io/badge/Socket.io-black?style=for-the-badge&logo=socket.io&badgeColor=010101"/>
     <br><br>
+    <img width="1512" alt="Screenshot 2023-03-04 at 1 09 42 AM" src="https://user-images.githubusercontent.com/66566975/222879304-7654ece8-b1c6-4923-87c1-3a767d583382.png">
 </div>
 
 ## What is Pomodoro Technique?
@@ -32,7 +33,6 @@ _(localhost:3000 by default)_
 1. `npm start`
 
 ## Preview
-<img width="1512" alt="Screenshot 2023-03-04 at 1 09 42 AM" src="https://user-images.githubusercontent.com/66566975/222879304-7654ece8-b1c6-4923-87c1-3a767d583382.png">
 <img width="1508" alt="Screenshot 2023-03-04 at 1 10 08 AM" src="https://user-images.githubusercontent.com/66566975/222879321-e8599264-2cef-4788-8c38-cd4641d71956.png">
 <img width="1510" alt="Screenshot 2023-03-04 at 1 10 19 AM" src="https://user-images.githubusercontent.com/66566975/222879326-4de77f0c-d90c-4b2b-aa87-97a6dfeeed7d.png">
 <img width="1510" alt="Screenshot 2023-03-04 at 1 10 40 AM" src="https://user-images.githubusercontent.com/66566975/222879352-52642ac8-c5fa-4b8d-8f34-56c25816152a.png">
