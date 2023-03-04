@@ -1,20 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import graphic from "../img/studycode.svg";
 import BackButton from "../components/BackButton";
 import { generateRoomCode } from "../utils/generateRoomCode";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 import createRoom from "../context/createRoom";
 
 const GenerateCode = () => {
   const [roomCode, setRoomCode] = useState("");
   const [copied, setCopied] = useState(false);
-
-  // const handleGenerateCode = () => {
-  //   const newCode = generateRoomCode(6);
-  //   setRoomCode(newCode);
-  //   document.getElementById("generate-code-btn").disabled = true;
-  // };
 
   const handleCreateRoom = () => {
     const roomCode = generateRoomCode(6);
@@ -25,9 +21,18 @@ const GenerateCode = () => {
     createRoom(roomCode, userName);
   };
 
+  useEffect(() => {
+    Aos.init({ duration: 800 });
+  }, []);
+
   return (
     <main>
-      <div className="flex flex-col mt-40 items-center justify-center">
+      <div
+        data-aos="fade-up"
+        data-aos-once
+        data-aos-delay="200"
+        className="flex flex-col mt-40 items-center justify-center"
+      >
         <div className="space-y-3">
           <img
             src={graphic}
@@ -35,15 +40,17 @@ const GenerateCode = () => {
             alt="main"
             className="mb-8 ml-2 -mt-12"
           />
-          <h1 className="text-4xl font-bold text-gray-600 text-center">
+          <h1 className="text-4xl font-bold text-gray-600 text-center cursor-default">
             Your study room <span className="text-green-400">code</span> is:
           </h1>
-          {roomCode && (
-            <p className="text-2xl text-center text-gray-600 italic font-semibold">
-              {roomCode}
-            </p>
-          )}
-          {!roomCode && <div className="h-8"></div>}
+          <div className="bg-gray-100  rounded-md py-1">
+            {roomCode && (
+              <p className="text-2xl text-center text-green-700 italic font-semibold">
+                {roomCode}
+              </p>
+            )}
+            {!roomCode && <div className="h-8"></div>}
+          </div>
         </div>
 
         <button
@@ -77,9 +84,9 @@ const GenerateCode = () => {
             Join Room
           </span>
         </a>
-
-        <BackButton page="/" />
       </div>
+
+      <BackButton />
     </main>
   );
 };

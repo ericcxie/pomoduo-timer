@@ -1,10 +1,16 @@
 import { useState, useEffect } from "react";
 import login from "../img/login.svg";
 import BackButton from "../components/BackButton";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 import joinRoom from "../context/joinRoom";
 
 const JoinRoom = () => {
+  useEffect(() => {
+    Aos.init({ duration: 800 });
+  }, []);
+
   const [userName, setUserName] = useState("");
   const [roomCode, setRoomCode] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -20,10 +26,15 @@ const JoinRoom = () => {
 
   return (
     <main>
-      <div className="flex flex-col items-center mt-36 justify-center">
+      <div
+        data-aos="fade-up"
+        data-aos-once
+        data-aos-delay="200"
+        className="flex flex-col items-center mt-36 justify-center"
+      >
         <div className="space-y-3 mb-6">
           <img src={login} width={375} alt="main" className="mb-8 ml-2" />
-          <h1 className="text-4xl font-bold text-gray-600 text-center">
+          <h1 className="text-4xl font-bold text-gray-600 text-center cursor-default">
             Join study <span className="text-green-400">room</span>
           </h1>
         </div>
@@ -72,9 +83,8 @@ const JoinRoom = () => {
             <p className="mt-2 text-sm text-red-700">{errorMessage}</p>
           </div>
         )}
-
-        <BackButton />
       </div>
+      <BackButton />
     </main>
   );
 };

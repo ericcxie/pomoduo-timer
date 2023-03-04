@@ -20,13 +20,13 @@ function Timer({
 
   return (
     <div className="w-10/12 mx-auto pt-5 flex flex-col justify-center items-center mt-10">
-      <div className="flex gap-5 items-center text-gray-600">
+      <div className="flex gap-5 items-center text-gray-700">
         {options.map((option, index) => {
           return (
             <h1
               key={index}
               className={` ${
-                index === stage ? "bg-green-400 bg-opacity-30 rounded-md" : ""
+                index === stage ? "bg-green-300 bg-opacity-50 rounded-md" : ""
               } p-1 cursor-pointer transition-all`}
               onClick={() => switchStage(index)}
             >
