@@ -14,9 +14,9 @@
     <img src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white"/>
     <img src="https://img.shields.io/badge/Socket.io-black?style=for-the-badge&logo=socket.io&badgeColor=010101"/>
     <br><br>
-https://user-images.githubusercontent.com/66566975/222945322-e80ffc3c-3f7d-449c-890e-36876c8711aa.mp4
-
 </div>
+
+https://user-images.githubusercontent.com/66566975/222945322-e80ffc3c-3f7d-449c-890e-36876c8711aa.mp4
 
 ## What is Pomodoro Technique?
 *The Pomodoro Technique is created by Francesco Cirillo for a more productive way to work and study. The technique uses a timer to break down work into intervals, traditionally 25 minutes in length, separated by short breaks. Each interval is known as a pomodoro, from the Italian word for 'tomato', after the tomato-shaped kitchen timer that Cirillo used as a university student. - Wikipedia*
