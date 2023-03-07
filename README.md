@@ -25,7 +25,6 @@ https://user-images.githubusercontent.com/66566975/223306508-5b22c5a7-d395-4092-
 ## Getting started
 ### Starting the server
 _(localhost:5050 by default)_
-1. `npm install`
 1. `node server.js`
 
 ### Starting the app
