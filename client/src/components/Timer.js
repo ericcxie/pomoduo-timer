@@ -1,3 +1,7 @@
+import io from "socket.io-client";
+
+const socket = io.connect("http://localhost:5050");
+
 function Timer({
   stage,
   switchStage,
@@ -11,8 +15,13 @@ function Timer({
   function handleClick() {
     const audio = new Audio("/click.wav");
     audio.play();
+    socket.emit("startTimer");
     setTicking((ticking) => !ticking);
   }
+
+  socket.on("timerStarted", () => {
+    setTicking(true);
+  });
 
   return (
     <div className="w-10/12 mx-auto pt-5 flex flex-col justify-center items-center mt-10">

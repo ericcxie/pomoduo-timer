@@ -6,11 +6,52 @@ const app = express();
 const cors = require("cors");
 app.use(cors());
 
+// socket.io
+const { Server } = require("socket.io");
+const http = require("http");
+
+const server = http.createServer(app);
+
+server.listen(5050, () => {
+  console.log(`Server listening on port 5050...`);
+});
+
+const io = new Server(server, {
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"],
+  },
+});
+
+io.on("connection", (socket) => {
+  console.log(`User Connected: ${socket.id}`);
+
+  socket.on("disconnect", () => {
+    io.emit("message", "A user has left the room");
+  });
+
+  socket.on("joinRoom", ({ userName, roomCode }) => {
+    socket.emit("message", "Welcome to PomoDuo!");
+
+    socket.broadcast.emit("message", "A user has joined the room");
+  });
+
+  // socket.on("startTimer", () => {
+  //   console.log("Timer started");
+  //   io.emit("timerStarted"); // broadcast the timerStarted event to all connected clients
+  // });
+});
+
+// Firebase server
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
 
 const db = admin.firestore();
+
+app.get("/", (req, res) => {
+  res.send("Hello world!");
+});
 
 app.use(express.json());
 
@@ -67,7 +108,7 @@ app.post("/joinRoom", async (req, res) => {
   res.send("Joined room");
 });
 
-const PORT = process.env.PORT || 5050;
-app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}...`);
-});
+// const PORT = process.env.PORT || 5050;
+// app.listen(PORT, () => {
+//   console.log(`Server listening on port ${PORT}...`);
+// });

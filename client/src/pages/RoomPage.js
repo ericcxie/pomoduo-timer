@@ -3,6 +3,10 @@ import Alarm from "../components/Alarm";
 import ModalSetting from "../components/ModalSetting";
 import Navigation from "../components/Navigation";
 import Timer from "../components/Timer";
+import io from "socket.io-client";
+import { ScaleLoader } from "react-spinners";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Room = () => {
   const [pomodoro, setPomodoro] = useState(25);
@@ -113,7 +117,29 @@ const Room = () => {
     };
   }, [seconds, pomodoro, shortBreak, longBreak, ticking]);
 
-  return (
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1600);
+  }, []);
+
+  useEffect(() => {
+    Aos.init({ duration: 800 });
+  }, []);
+
+  return loading ? (
+    <div className="flex items-center justify-center h-screen w-screen bg-white dark:bg-darkmode">
+      <ScaleLoader
+        color="#798a72"
+        size={100}
+        loading={loading}
+        className="text-center overscroll-none"
+      />
+    </div>
+  ) : (
     <div
       className={
         ticking
@@ -122,26 +148,30 @@ const Room = () => {
       }
     >
       <div className="max-w-xl min-h-screen mx-auto">
-        <Navigation setOpenSettings={setOpenSettings} />
-        <Timer
-          stage={stage}
-          switchStage={switchStage}
-          getTime={getTime}
-          seconds={seconds}
-          ticking={ticking}
-          setTicking={setTicking}
-          muteAlarm={muteAlarm}
-          reset={reset}
-        />
-        <Alarm ref={alarmRef} />
-        <ModalSetting
-          openSettings={openSettings}
-          setOpenSettings={setOpenSettings}
-          pomodoroRef={pomodoroRef}
-          shortBreakRef={shortBreakRef}
-          longBreakRef={longBreakRef}
-          updateTimeDefaultValue={updateTimeDefaultValue}
-        />
+        <div data-aos="fade-down" data-aos-once data-aos-delay="50">
+          <Navigation setOpenSettings={setOpenSettings} />
+        </div>
+        <div data-aos="fade-up" data-aos-once data-aos-delay="600">
+          <Timer
+            stage={stage}
+            switchStage={switchStage}
+            getTime={getTime}
+            seconds={seconds}
+            ticking={ticking}
+            setTicking={setTicking}
+            muteAlarm={muteAlarm}
+            reset={reset}
+          />
+          <Alarm ref={alarmRef} />
+          <ModalSetting
+            openSettings={openSettings}
+            setOpenSettings={setOpenSettings}
+            pomodoroRef={pomodoroRef}
+            shortBreakRef={shortBreakRef}
+            longBreakRef={longBreakRef}
+            updateTimeDefaultValue={updateTimeDefaultValue}
+          />
+        </div>
       </div>
     </div>
   );
